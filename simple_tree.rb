@@ -136,13 +136,21 @@ module SimpleTree
 
   #
   # Helper method for to_s, returns a tree representation of the subtree
-  # rooted at this node.
+  # rooted at this node.  This assumes some sort of identifier is specified
+  # for the object being called (self.name, self.identifier, etc)
   # 
   def tree_rep(depth=0)
-    if depth > 0
-      outp = " #{(["    "] * (depth - 1)).join("|")}\\- #{self.identifier}\n"
+    if self.name
+      ident = self.name
+    elsif self.identifier
+      ident = self.identifier
     else
-      outp = "#{self.identifier}\n"
+      ident = self.object_id
+    end
+    if depth > 0
+      outp = " #{(["    "] * (depth - 1)).join("|")}\\- #{ident}\n"
+    else
+      outp = "#{ident}\n"
     end
     children.each do |child|
       outp += child.tree_rep(depth + 1)
