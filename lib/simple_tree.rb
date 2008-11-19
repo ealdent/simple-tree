@@ -84,9 +84,9 @@ module SimpleTree
   #
   def family
     if parent
-      fam = parent.descendants
+      fam = [parent] + parent.descendants
     else
-      fam = descedants
+      fam = descendants
     end
 
     fam.delete(self)
