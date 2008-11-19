@@ -5,6 +5,7 @@ class Tree
   def parent() raise "parent must be overridden"; end
   def children() raise "children must be overridden"; end
   def initialize() raise "initialize must be overridden"; end
+  
 
   #
   # Return whether this node is a leaf node in the hierarchy.
@@ -27,6 +28,22 @@ class Tree
     else
       true
     end
+  end
+  
+  
+  #
+  # Determine whether the node has a parent.
+  #
+  def has_parent?
+    not is_root?
+  end
+  
+  
+  #
+  # Determine whether the node has children.
+  #
+  def has_children?
+    not is_leaf?
   end
 
 
