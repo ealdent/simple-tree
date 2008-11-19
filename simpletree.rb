@@ -1,6 +1,6 @@
 # Ruby Tree Interface
 
-class Tree
+class SimpleTree
   # Methods that must be overridden
   def parent() raise "parent must be overridden"; end
   def children() raise "children must be overridden"; end
