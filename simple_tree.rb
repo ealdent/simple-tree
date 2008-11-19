@@ -1,10 +1,14 @@
-# Ruby Tree Interface
-
+#
+# Ruby Tree Interface by Jason M. Adams.  Distributed under the BSD license, please see LICENSE for more information.
+#
+# To use this interface, drop it in your current class with +include+.
+# You must then simply implement the +parent+ and +children+ methods.
+#  * +parent+ returns the parent node of the current node or else nil if it's a root
+#  * +children+ returns an +Array+ of all children of this node or an empty +Array+ if it is a leaf node
+#
 class SimpleTree
-  # Methods that must be overridden
   def parent() raise "parent must be overridden"; end
   def children() raise "children must be overridden"; end
-  def initialize() raise "initialize must be overridden"; end
   
 
   #
